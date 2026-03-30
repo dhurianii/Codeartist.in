@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CodeArtist — Web Design for Gyms & Salons</title>
+<meta name="description" content="We build premium websites for gyms and salons in Mumbai. Fast, mobile-first, WhatsApp lead capture. Starting ₹6,999."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="ca-style.css"/>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<!-- Page load overlay -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">Code<span>Artist</span></div>
+    <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+    <div class="loader-text" id="loaderText">Loading…</div>
+  </div>
+</div>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">Code<em>Artist</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#work"     class="nav-link">Work</a></li>
+      <li><a href="#about"    class="nav-link">About</a></li>
+      <li><a href="#pricing"  class="nav-link">Pricing</a></li>
+      <li><a href="#contact"  class="nav-link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-gold nav-cta">Let's Talk</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="home">
+  <!-- Animated noise grain overlay -->
+  <div class="hero-grain"></div>
+  <!-- Parallax background -->
+  <div class="hero-parallax" id="heroBg"></div>
+  <!-- Gold orb blobs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal-load">
+      <span class="eyebrow-dot"></span>
+      Web Design Studio · Mumbai
+    </div>
+
+    <h1 class="hero-title reveal-load delay-1">
+      We Build Websites<br/>
+      That <span class="typed-wrap"><span class="typed" id="typedText"></span><span class="typed-cursor">|</span></span>
+    </h1>
+
+    <p class="hero-sub reveal-load delay-2">
+      Premium landing pages for gyms and salons — capturing leads 24/7 while you focus on what you love.
+    </p>
+
+    <div class="hero-btns reveal-load delay-3">
+      <a href="#contact" class="btn-gold">Start Your Project</a>
+      <a href="#work"    class="btn-ghost">See Our Work <span class="arrow">→</span></a>
+    </div>
+
+    <div class="hero-stats reveal-load delay-4">
+      <div class="hero-stat">
+        <span class="stat-n">5</span><span class="stat-unit">Days</span>
+        <span class="stat-l">Delivery</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-n">₹6,999</span>
+        <span class="stat-l">Starting Price</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-n">24/7</span>
+        <span class="stat-l">Lead Capture</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <span class="stat-n">100%</span>
+        <span class="stat-l">Mobile First</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow-line">What We Do</div>
+      <h2 class="section-title">Everything your business<br/>needs <em>online.</em></h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal delay-1">
+        <div class="service-number">01</div>
+        <div class="service-icon">◈</div>
+        <h3 class="service-title">Landing Page Design</h3>
+        <p class="service-desc">A fast, mobile-first page that turns midnight visitors into WhatsApp enquiries — automatically.</p>
+        <ul class="service-list">
+          <li>Custom design, not a template</li>
+          <li>WhatsApp lead form built-in</li>
+          <li>Loads under 2 seconds</li>
+          <li>Live in 5 working days</li>
+        </ul>
+        <div class="service-footer">
+          <span class="service-price">From ₹6,999</span>
+          <span class="service-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal delay-2">
+        <div class="service-number">02</div>
+        <div class="service-icon">◉</div>
+        <h3 class="service-title">Google Presence</h3>
+        <p class="service-desc">Get found when locals search "gym near me" or "salon near me" — before your competitors.</p>
+        <ul class="service-list">
+          <li>Google Business Profile</li>
+          <li>Photos & hours optimised</li>
+          <li>Show in "near me" searches</li>
+          <li>Ready in 2 days</li>
+        </ul>
+        <div class="service-footer">
+          <span class="service-price">₹2,499</span>
+          <span class="service-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal delay-3">
+        <div class="service-number">03</div>
+        <div class="service-icon">◎</div>
+        <h3 class="service-title">Monthly Care</h3>
+        <p class="service-desc">We keep your site updated, fast and working — so you never have to think about it again.</p>
+        <ul class="service-list">
+          <li>Content updates anytime</li>
+          <li>Hosting managed for you</li>
+          <li>WhatsApp form monitoring</li>
+          <li>Priority support</li>
+        </ul>
+        <div class="service-footer">
+          <span class="service-price">₹1,999/mo</span>
+          <span class="service-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WORK ═══════════ -->
+<section class="work" id="work">
+  <div class="container">
+    <div class="work-head">
+      <div class="reveal">
+        <div class="eyebrow-line">Our Work</div>
+        <h2 class="section-title">Built for results,<br/><em>not awards.</em></h2>
+      </div>
+      <p class="work-sub reveal delay-1">Every site has one job — turn someone who found you online into someone who walks through your door.</p>
+    </div>
+
+    <div class="work-grid">
+      <!-- Featured -->
+      <div class="work-card work-featured reveal">
+        <div class="work-img-wrap">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&h=560&fit=crop" alt="PowerZone Fitness" class="work-img"/>
+          <div class="work-overlay">
+            <a href="https://powerzone-j594.vercel.app" class="work-view-btn" target="_blank">View Live →</a>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="work-tag">Gym · Mumbai</div>
+          <div class="work-name">PowerZone Fitness</div>
+          <div class="work-desc">7-section gym site with membership plans, WhatsApp lead form, gallery and trainer showcase. Live in 5 days.</div>
+        </div>
+      </div>
+
+      <!-- Stack right -->
+      <div class="work-stack">
+        <div class="work-card reveal delay-1">
+          <div class="work-img-wrap">
+            <img src="https://images.unsplash.com/photo-1560066984-138daab7f6ac?w=600&h=300&fit=crop" alt="GlowUp Salon" class="work-img"/>
+            <div class="work-overlay">
+              <a href="#" class="work-view-btn" target="_blank">View Demo →</a>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-tag">Salon · Demo</div>
+            <div class="work-name">GlowUp Salon</div>
+            <div class="work-desc">Elegant salon site with service menu, pricing and booking form.</div>
+          </div>
+        </div>
+
+        <!-- CTA card -->
+        <div class="work-card work-cta-card reveal delay-2" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <div class="work-cta-inner">
+            <div class="work-cta-plus">+</div>
+            <div class="work-cta-title">Your Business Here</div>
+            <div class="work-cta-sub">Get started today →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY US ═══════════ -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-left reveal">
+        <div class="eyebrow-line">Why CodeArtist</div>
+        <h2 class="section-title">Someone just Googled<br/><em>"gym near me."</em><br/>Are they finding you?</h2>
+        <p class="why-body">Most gyms and salons in Mumbai have no website — or one that looks broken on mobile. That's your window. We help you take it.</p>
+        <a href="#contact" class="btn-gold">Fix That Today</a>
+      </div>
+
+      <div class="why-right">
+        <div class="why-point reveal delay-1">
+          <div class="why-num">01</div>
+          <div>
+            <div class="why-point-title">Only gyms &amp; salons</div>
+            <div class="why-point-desc">We know your customers and what makes them walk in. Generic agencies don't.</div>
+          </div>
+        </div>
+        <div class="why-point reveal delay-2">
+          <div class="why-num">02</div>
+          <div>
+            <div class="why-point-title">Live in 5 days</div>
+            <div class="why-point-desc">Send content Monday. Live by Friday. No 4-week agency timelines.</div>
+          </div>
+        </div>
+        <div class="why-point reveal delay-3">
+          <div class="why-num">03</div>
+          <div>
+            <div class="why-point-title">Every lead to WhatsApp</div>
+            <div class="why-point-desc">No CRM. Someone fills the form — you get a WhatsApp message instantly.</div>
+          </div>
+        </div>
+        <div class="why-point reveal delay-4">
+          <div class="why-num">04</div>
+          <div>
+            <div class="why-point-title">Costs less than one member</div>
+            <div class="why-point-desc">₹6,999 once. If this page brings one extra member, it pays for itself.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ═══════════ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow-line">Pricing</div>
+      <h2 class="section-title">Simple pricing.<br/><em>No surprises.</em></h2>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card reveal delay-1">
+        <div class="pricing-plan">Starter</div>
+        <div class="pricing-amt"><sup>₹</sup>6,999</div>
+        <div class="pricing-note">One-time · Live in 5 days</div>
+        <ul class="pricing-features">
+          <li>1-page landing site</li>
+          <li>WhatsApp lead form</li>
+          <li>Mobile-first design</li>
+          <li>Vercel hosting setup</li>
+          <li>Google Maps embed</li>
+          <li class="no">Google Business setup</li>
+          <li class="no">Monthly maintenance</li>
+        </ul>
+        <button class="btn-ghost pricing-btn" onclick="openWA('Starter ₹6,999')">Get Started</button>
+      </div>
+
+      <div class="pricing-card pricing-featured reveal delay-2">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-plan">Professional</div>
+        <div class="pricing-amt"><sup>₹</sup>11,999</div>
+        <div class="pricing-note">One-time · Live in 5 days</div>
+        <ul class="pricing-features">
+          <li>Multi-section website</li>
+          <li>WhatsApp lead form</li>
+          <li>Mobile-first design</li>
+          <li>Vercel hosting setup</li>
+          <li>Google Maps embed</li>
+          <li>Google Business setup</li>
+          <li class="no">Monthly maintenance</li>
+        </ul>
+        <button class="btn-gold pricing-btn" onclick="openWA('Professional ₹11,999')">Get Started</button>
+      </div>
+
+      <div class="pricing-card reveal delay-3">
+        <div class="pricing-plan">Elite</div>
+        <div class="pricing-amt"><sup>₹</sup>16,999</div>
+        <div class="pricing-note">One-time · Live in 5 days</div>
+        <ul class="pricing-features">
+          <li>Multi-section website</li>
+          <li>WhatsApp lead form</li>
+          <li>Mobile-first design</li>
+          <li>Vercel hosting setup</li>
+          <li>Google Maps embed</li>
+          <li>Google Business setup</li>
+          <li>3 months maintenance</li>
+        </ul>
+        <button class="btn-ghost pricing-btn" onclick="openWA('Elite ₹16,999')">Get Started</button>
+      </div>
+    </div>
+
+    <div class="retainer-bar reveal">
+      <span class="retainer-icon">∞</span>
+      <span><strong>Add monthly maintenance — ₹1,999/month.</strong> Updates, hosting, form monitoring. Less than ₹70/day.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-frame">
+          <div class="about-monogram">ACD</div>
+          <div class="about-frame-corner tl"></div>
+          <div class="about-frame-corner tr"></div>
+          <div class="about-frame-corner bl"></div>
+          <div class="about-frame-corner br"></div>
+        </div>
+        <div class="about-tag-card">
+          <div class="atc-label">Founder</div>
+          <div class="atc-name">Aniket C Dhuri</div>
+          <div class="atc-role">Web Developer · Mumbai</div>
+        </div>
+      </div>
+
+      <div class="about-content reveal delay-2">
+        <div class="eyebrow-line">About</div>
+        <h2 class="section-title">The person behind<br/><em>every site.</em></h2>
+        <p class="about-body">
+          I'm Aniket — a final-year B.Sc. Computer Science student from Mumbai who started CodeArtist because I saw a real gap: thousands of local gyms and salons with no online presence, losing customers every day to competitors who just had a basic website.
+        </p>
+        <p class="about-body" style="margin-top:12px">
+          I build fast, professional websites that actually bring in leads — not just pretty pages. Every site I deliver goes live within 5 days, works perfectly on mobile, and sends enquiries straight to your WhatsApp.
+        </p>
+        <div class="about-links">
+          <a href="https://github.com/dhurianii" class="about-link" target="_blank">GitHub →</a>
+          <a href="#contact" class="about-link">Work with me →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="eyebrow-line">Get Started</div>
+        <h2 class="section-title">Let's build your<br/><em>online presence.</em></h2>
+        <p class="contact-promise">"Tell us about your business today. We'll send a custom proposal within 24 hours."</p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="ci-icon">✦</span>
+            <div>
+              <div class="ci-label">WhatsApp</div>
+              <div class="ci-val">+91 91370 79995</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">@</span>
+            <div>
+              <div class="ci-label">Instagram</div>
+              <div class="ci-val">@codeartist.in</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">◎</span>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-val">Mumbai, Maharashtra</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">◷</span>
+            <div>
+              <div class="ci-label">Response Time</div>
+              <div class="ci-val">Within 1 hour</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal delay-2">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="c-name" placeholder="Rajesh Shetty"/>
+            <span class="field-error" id="cn-err"></span>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="c-phone" placeholder="98765 43210" inputmode="numeric" maxlength="10"/>
+            <span class="field-error" id="cp-err"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Business Name</label>
+          <input type="text" id="c-biz" placeholder="FitCore Gym"/>
+        </div>
+        <div class="form-group">
+          <label>Business Type</label>
+          <select id="c-type">
+            <option>Gym / Fitness Studio</option>
+            <option>Salon / Beauty Parlour</option>
+            <option>Yoga / Wellness Studio</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message <span class="opt">(optional)</span></label>
+          <textarea id="c-msg" placeholder="Any requirements or questions…"></textarea>
+        </div>
+        <button class="btn-gold form-btn" id="sendBtn">Send on WhatsApp ✦</button>
+        <p class="form-note">We reply within 1 hour · No spam · No commitment</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">Code<em>Artist</em></div>
+    <div class="footer-copy">© 2026 CodeArtist · Mumbai · Web Design for Gyms &amp; Salons</div>
+    <div class="footer-ig">@codeartist.in</div>
+  </div>
+</footer>
+
+<script src="ca-script.js"></script>
+</body>
+</html>
