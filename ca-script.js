@@ -149,11 +149,12 @@ function updateActiveLink() {
 ────────────────────────────────────────────── */
 const typedEl = document.getElementById('typedText');
 const phrases = [
-  'Get You Found.',
-  'Capture Leads.',
-  'Bring Members In.',
-  'Work While You Sleep.',
-  'Look Premium.',
+  'Startups.',
+  'Students.',
+  'Creators.',
+  'Local Businesses.',
+  'Gyms & Salons.',
+  'Founders.',
 ];
 let phraseIndex = 0;
 let charIndex   = 0;
@@ -232,7 +233,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
    (exactly 10 digits), then builds and opens
    a pre-filled wa.me URL.
 ────────────────────────────────────────────── */
-const WA_NUM = '919137079995'; // ← Aniket's number
+const WA_OWNER = '919137079995'; // CodeArtist owner, with 91 country prefix
 
 // Strip non-numeric from phone as user types
 document.getElementById('c-phone')?.addEventListener('input', e => {
@@ -255,43 +256,92 @@ function clearErr(id) {
 document.getElementById('c-name')?.addEventListener('input',  () => clearErr('cn-err'));
 document.getElementById('c-phone')?.addEventListener('input', () => clearErr('cp-err'));
 
+// ── Build the messages ────────────────────
+let lastPayload = null; // cached so "Open WhatsApp Again" can re-fire
+
+function buildOwnerMsg(d) {
+  return encodeURIComponent(
+    `🔔 *New CodeArtist Enquiry*\n\n` +
+    `*Name:* ${d.name}\n` +
+    `*Phone:* +91 ${d.phone}\n` +
+    `*Business:* ${d.biz || '—'}\n` +
+    `*Type:* ${d.type}\n` +
+    `*Service:* ${d.service}\n` +
+    `*Budget:* ${d.budget}\n` +
+    (d.msg ? `\n*Message:*\n${d.msg}` : '') +
+    `\n\n— via codeartist.in`
+  );
+}
+function buildUserMsg(d) {
+  return encodeURIComponent(
+    `Hi ${d.name.split(' ')[0]}! 👋\n\n` +
+    `Thanks for reaching out to *CodeArtist*.\n\n` +
+    `We've received your enquiry for a *${d.service}* ` +
+    `(budget ${d.budget}) and will get back to you within 1 hour.\n\n` +
+    `If you need anything urgent, just reply to this chat.\n\n` +
+    `— Aniket, CodeArtist.in`
+  );
+}
+
 document.getElementById('sendBtn')?.addEventListener('click', () => {
-  const name  = document.getElementById('c-name').value.trim();
-  const phone = document.getElementById('c-phone').value.replace(/\D/g, '');
-  const biz   = document.getElementById('c-biz').value.trim();
-  const type  = document.getElementById('c-type').value;
-  const msg   = document.getElementById('c-msg').value.trim();
+  const name    = document.getElementById('c-name').value.trim();
+  const phone   = document.getElementById('c-phone').value.replace(/\D/g, '');
+  const biz     = document.getElementById('c-biz').value.trim();
+  const type    = document.getElementById('c-type').value;
+  const service = document.getElementById('c-service').value;
+  const budget  = document.getElementById('c-budget').value;
+  const msg     = document.getElementById('c-msg').value.trim();
 
   let valid = true;
-  if (!name || name.length < 2) { setErr('cn-err', 'Please enter your full name (min 2 characters).'); valid = false; }
-  else clearErr('cn-err');
-  if (!phone || phone.length !== 10) { setErr('cp-err', `10 digits required — you entered ${phone.length}.`); valid = false; }
-  else clearErr('cp-err');
+  if (!name || name.length < 2) {
+    setErr('cn-err', 'Please enter your full name (min 2 characters).');
+    valid = false;
+  } else clearErr('cn-err');
+
+  if (!phone || phone.length !== 10) {
+    setErr('cp-err', `10 digits required — you entered ${phone.length}.`);
+    valid = false;
+  } else clearErr('cp-err');
 
   if (!valid) return;
 
-  const text = encodeURIComponent(
-    `Hi CodeArtist! 👋\n\n` +
-    `I'm interested in getting a website built.\n\n` +
-    `Name: ${name}\n` +
-    `Phone: +91 ${phone}\n` +
-    `Business: ${biz || 'Not mentioned'}\n` +
-    `Type: ${type}\n` +
-    (msg ? `\nMessage: ${msg}` : '') +
-    `\n\nLooking forward to hearing from you!`
-  );
+  const data = { name, phone, biz, type, service, budget, msg };
+  lastPayload = data;
 
-  window.open(`https://wa.me/${WA_NUM}?text=${text}`, '_blank');
+  // 1. Show success state in place of the form
+  document.getElementById('contactForm').hidden = true;
+  document.getElementById('formSuccess').hidden = false;
 
-  const btn = document.getElementById('sendBtn');
-  btn.textContent = '✓ Opening WhatsApp…';
-  btn.disabled = true;
-  btn.style.opacity = '0.75';
+  // 2. Open WhatsApp to the USER (with confirmation)
+  const userUrl = `https://wa.me/91${phone}?text=${buildUserMsg(data)}`;
+  const win1 = window.open(userUrl, '_blank', 'noopener,noreferrer');
+
+  // 3. After a short delay, open WhatsApp to the OWNER (with the lead)
   setTimeout(() => {
-    btn.innerHTML = 'Send on WhatsApp ✦';
-    btn.disabled = false;
-    btn.style.opacity = '';
-  }, 2500);
+    const ownerUrl = `https://wa.me/${WA_OWNER}?text=${buildOwnerMsg(data)}`;
+    const win2 = window.open(ownerUrl, '_blank', 'noopener,noreferrer');
+    if (!win1 && !win2) {
+      console.warn('Popup blocked — user can tap "Open WhatsApp Again".');
+    }
+  }, 600);
+});
+
+// ── "Open WhatsApp Again" fallback ────────
+document.getElementById('resendBtn')?.addEventListener('click', () => {
+  if (!lastPayload) return;
+  const d = lastPayload;
+  window.open(`https://wa.me/${WA_OWNER}?text=${buildOwnerMsg(d)}`, '_blank', 'noopener,noreferrer');
+});
+
+// ── "Send another enquiry" — reset the form ──
+document.getElementById('resetBtn')?.addEventListener('click', () => {
+  document.getElementById('contactForm').reset();
+  document.getElementById('formSuccess').hidden = true;
+  document.getElementById('contactForm').hidden = false;
+  clearErr('cn-err');
+  clearErr('cp-err');
+  lastPayload = null;
+  document.getElementById('c-name').focus();
 });
 
 
