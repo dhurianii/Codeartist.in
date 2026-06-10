@@ -969,3 +969,189 @@ button { cursor: none; border: none; background: none; font-family: var(--font-b
   transition: opacity 0.2s;
 }
 .footer-phone:hover { opacity: 0.7; }
+
+/* =====================================================
+   MOBILE RESPONSIVE FIXES — phones
+   Targeted overrides to stop overflow, broken grids,
+   and tiny text on small screens. Desktop is untouched.
+===================================================== */
+
+/* Hide horizontal overflow caused by orbs / parallax */
+html, body { overflow-x: hidden; }
+
+/* ── 768px and below (tablets + large phones) ── */
+@media (max-width: 768px) {
+
+  /* Container / hero breathing room */
+  .container { padding: 0 20px; }
+  .hero { padding: 110px 0 70px; min-height: auto; }
+  .hero-content {
+    margin-left: 0;
+    padding: 0 20px;
+    max-width: 100%;
+    text-align: left;
+  }
+  .hero-content::after, .hero-content::before { display: none; }
+
+  /* Orbs can spill off-screen on small widths — shrink them */
+  .orb-1 { width: 240px; height: 240px; right: -60px; top: 4%; }
+  .orb-2 { width: 180px; height: 180px; left: -40px; bottom: 8%; }
+
+  /* Hero title — stop it from looking too tiny/large */
+  .hero-title { font-size: clamp(36px, 10vw, 56px); margin-bottom: 20px; }
+  .hero-sub   { font-size: 15px; margin-bottom: 28px; max-width: 100%; }
+  .hero-btns  { gap: 10px; margin-bottom: 36px; }
+  .hero-btns .btn-gold,
+  .hero-btns .btn-ghost { padding: 12px 22px; font-size: 13px; width: 100%; justify-content: center; }
+
+  /* Hero stats: 2x2 grid on phone so 4 fit without overflow */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 14px;
+    padding-top: 28px;
+  }
+  .stat-divider { display: none; }
+  .stat-n { font-size: 24px; }
+
+  /* Section vertical padding */
+  .services, .work, .why, .pricing, .testimonials, .contact, .about {
+    padding: 70px 0;
+  }
+  .section-head { margin-bottom: 36px; }
+  .section-title { font-size: clamp(28px, 8vw, 40px); }
+
+  /* Pricing — stack */
+  .pricing-grid { grid-template-columns: 1fr; gap: 14px; }
+  .pricing-card { padding: 30px 22px; }
+  .pricing-amt  { font-size: 42px; }
+  .retainer-bar { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px 20px; text-align: left; }
+
+  /* Work grid (5 cards: 1 featured + 4 standard) — single column */
+  .work-grid--5 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .work-grid--5 .work-featured { grid-row: auto; }
+  .work-grid--5 .work-featured .work-img,
+  .work-grid--5 .work-card:not(.work-featured) .work-img { height: 200px; min-height: 0; }
+  .work-head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 36px; }
+
+  /* Why */
+  .why-grid { grid-template-columns: 1fr; gap: 36px; }
+  .why-point { padding: 18px 0; grid-template-columns: 36px 1fr; gap: 12px; }
+  .why-num { font-size: 12px; }
+  .why-point-title { font-size: 17px; }
+
+  /* Testimonials — single column */
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonial-card { padding: 30px 24px 24px; }
+  .t-quote { font-size: 18px; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-promise { font-size: 15px; }
+  .ci-val { font-size: 13.5px; word-break: break-word; }
+
+  /* 3-col form row: stack on phones */
+  .form-row, .form-row--3 { grid-template-columns: 1fr; gap: 14px; }
+  .form-group input, .form-group select, .form-group textarea { font-size: 16px; /* avoids iOS zoom on focus */ }
+
+  /* Footer */
+  .footer-inner { flex-direction: column; text-align: center; gap: 16px; }
+  .footer-copy, .footer-phone { font-size: 10px; }
+  .footer-links { justify-content: center; }
+
+  /* Scroll indicator: hide on phones (not useful) */
+  .scroll-indicator { display: none; }
+}
+
+/* ── 480px and below (small phones) ── */
+@media (max-width: 480px) {
+
+  .container, .hero-content { padding: 0 16px; }
+  .hero { padding: 100px 0 60px; }
+  .hero-title { font-size: clamp(32px, 9.5vw, 44px); }
+  .hero-eyebrow { font-size: 9px; letter-spacing: 0.22em; }
+
+  .hero-stat .stat-n { font-size: 22px; }
+  .hero-stat .stat-l { font-size: 8.5px; }
+
+  .service-card { padding: 30px 22px; }
+  .service-number { font-size: 38px; }
+  .service-title  { font-size: 20px; }
+
+  .work-info { padding: 16px 18px; }
+  .work-name  { font-size: 18px; }
+  .work-desc  { font-size: 12.5px; }
+
+  .pricing-card { padding: 26px 20px; }
+  .pricing-amt  { font-size: 38px; }
+  .pricing-features li { font-size: 13px; }
+
+  .testimonial-card { padding: 26px 20px 22px; }
+  .t-quote { font-size: 16px; }
+
+  .form-btn { padding: 14px; font-size: 13px; }
+  .form-success { padding: 40px 22px; }
+  .form-success-title { font-size: 20px; }
+
+  /* Nav drawer takes a bit more room on tiny screens */
+  .nav-links { width: 82%; }
+}
+
+/* ── Very small phones (≤360px) ── */
+@media (max-width: 360px) {
+  .hero-title { font-size: 32px; }
+  .hero-btns .btn-gold,
+  .hero-btns .btn-ghost { font-size: 12.5px; padding: 11px 18px; }
+  .section-title { font-size: 28px; }
+}
+
+/* =====================================================
+   4-COL GRID → MOBILE STACK
+   Desktop: 4 columns. Mobile (≤768px): 2 columns
+   then 1 column on very small phones (≤480px).
+   Selectors use doubled class to beat the existing
+   ≤900px rule's specificity.
+===================================================== */
+@media (max-width: 768px) {
+  .services-grid--4.services-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Reset borders for 2-col layout */
+  .services-grid--4 .service-card {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .services-grid--4 .service-card:nth-child(2n)        { border-right: none; }
+  .services-grid--4 .service-card:nth-last-child(-n+2)  { border-bottom: none; }
+
+  /* Tighter card padding & smaller text for 2-col phones */
+  .services-grid--4 .service-card { padding: 28px 20px; }
+  .services-grid--4 .service-title { font-size: 19px; }
+  .services-grid--4 .service-desc  { font-size: 12.5px; line-height: 1.7; }
+  .services-grid--4 .service-number { font-size: 38px; margin-bottom: 14px; }
+  .services-grid--4 .service-icon   { font-size: 20px; margin-bottom: 12px; }
+  .services-grid--4 .service-list   { gap: 6px; margin-bottom: 22px; }
+  .services-grid--4 .service-list li { font-size: 12px; }
+  .services-grid--4 .service-price  { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  /* Drop to 1 column on small phones so cards have room */
+  .services-grid--4.services-grid--4 {
+    grid-template-columns: 1fr;
+  }
+  .services-grid--4 .service-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .services-grid--4 .service-card:nth-child(2n)        { border-right: none; }
+  .services-grid--4 .service-card:nth-last-child(-n+2)  { border-bottom: 1px solid var(--border); }
+  .services-grid--4 .service-card:last-child           { border-bottom: none; }
+
+  .services-grid--4 .service-card { padding: 30px 22px; }
+  .services-grid--4 .service-title { font-size: 20px; }
+  .services-grid--4 .service-desc  { font-size: 13px; }
+}
